@@ -1,4 +1,9 @@
-const urlApi = "http://localhost:3000/user"
+import { 
+    defaultRoutePostgres
+} from "../../config.js"
+
+const table = "user"
+const urlApi = defaultRoutePostgres + table
 
 const getUser = async (id) => {
     const config = {

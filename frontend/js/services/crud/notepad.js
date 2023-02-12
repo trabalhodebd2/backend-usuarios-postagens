@@ -1,4 +1,9 @@
-const urlApi = "http://localhost:8000/annotations"
+import { 
+    defaultRouteNeo4j
+} from "../../config.js"
+
+const grafos = "annotations"
+const urlApi = defaultRouteNeo4j + grafos
 
 const getAllNotepads = async () => {
     try {
