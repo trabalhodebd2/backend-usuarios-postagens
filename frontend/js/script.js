@@ -14,7 +14,7 @@ import {
 import {
     getAllNotepads,
     deleteNotepad,
-} from "./crud.js"
+} from "./services/crud/notepad.js"
 
 import { idEdit, idDelete } from "./services/getIdModals.js"
 

@@ -4,7 +4,7 @@ import reqType from "../controller/reqType.js"
 import {
     createNotepad,
     updateNotepad
-} from "../crud.js"
+} from "./crud/notepad.js"
 
 import modalController, {
     getTitleAndContentModal

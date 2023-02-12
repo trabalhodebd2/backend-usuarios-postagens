@@ -4,7 +4,7 @@ import remapEvents from "./remapEvents.js"
 import {
     getAllNotepads,
     searchNotepads
-} from "../crud.js"
+} from "./crud/notepad.js"
 
 const reloadElementsInPage = async (data, erasedCurrent = false) => {
     if (erasedCurrent) {
