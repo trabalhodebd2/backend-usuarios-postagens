@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="js/tailwind/tailwind.js"></script>
+        <script src="js/tailwind/tailwind.config.js"></script>
+        <link rel="stylesheet" href="style/main.css" />
+        <title>Bloco de Notas</title>
+    </head>
+    <body>
+        <form
+            class="h-screen flex justify-center items-center opacity-100 transition-opacity"
+        >
+            <div
+                class="shadow-common w-[40rem] bg-white py-10 px-10 space-y-9 rounded-lg"
+            >
+                <h1 class="flex justify-center text-5xl font-bold">Login</h1>
+                <div class="space-y-4">
+                    <h1 class="text-xl">E-mail</h1>
+                    <input
+                        type="email"
+                        id="email"
+                        max="125"
+                        required
+                        class="h-[3.125rem] w-full bg-primary px-4 rounded-lg"
+                    />
+                </div>
+                <div class="space-y-4">
+                    <h1 class="text-xl">Senha</h1>
+                    <input
+                        type="password"
+                        id="password"
+                        max="525"
+                        required
+                        class="h-[3.125rem] w-full bg-primary px-4 rounded-lg"
+                    />
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        class="h-14 w-1/2 rounded-lg font-bold border-[2px] border-gray flex justify-center items-center text-gray cursor-pointer cancel hover:border-none hover:text-primary hover:bg-gray transition-all"
+                        >Cancelar</a
+                    >
+                    <button
+                        id="button-update"
+                        class="h-14 w-1/2 rounded-lg font-bold bg-tertiary text-primary hover:bg-tertiary_hover transition-all"
+                    >
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <script type="module" src="js/script.js"></script>
+    </body>
+</html>
