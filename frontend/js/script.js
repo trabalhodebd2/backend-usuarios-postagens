@@ -18,6 +18,10 @@ import {
 
 import { idEdit, idDelete } from "./services/getIdModals.js"
 
+import {
+    signOut
+} from "./services/authenticate/authenticate.js"
+
 const modalEdit = document.querySelector(idEdit)
 modalEdit.addEventListener("submit", event => {
     event.preventDefault()
@@ -45,6 +49,9 @@ buttonCreateNotepad.addEventListener("click", event => {
 
 const inputSearch = document.querySelector("#input-search")
 inputSearch.addEventListener("keydown", async (event) => search(event.key))
+
+const exit = document.querySelector("#exit")
+exit.addEventListener("click", signOut)
 
 const init = async (erasedCurrent = false) => {
     const data = await getAllNotepads() || []
