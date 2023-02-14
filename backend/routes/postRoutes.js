@@ -1,8 +1,8 @@
-const isAuthenticated = require("../middlewares/isAuthenticated.js");
-const postController = require("../controllers/postController.js");
-
 const express = require("express");
 const router = express.Router();
+
+const isAuthenticated = require("../middlewares/isAuthenticated.js");
+const postController = require("../controllers/postController.js");
 
 router.get("/users/:id/posts", isAuthenticated, postController.getUserPosts);
 
