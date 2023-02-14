@@ -28,9 +28,6 @@ const getUserPostById = async (req, res) => {
 };
 
 const getUserPosts = async (req, res) => {
-	console.log("AAAAAAAAAAAAAAAAAAaa");
-	console.log(req.session.userId);
-
 	//
 	const { id } = req.params;
 
