@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# creating env and installing dependencies
+# installing dependencies
 
-python3 -m venv env
-env/bin/pip install -r requirements.txt
+npm i
 
 # creating database and altering user to the default one
 

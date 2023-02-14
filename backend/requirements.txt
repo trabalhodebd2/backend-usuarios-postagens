@@ -1,7 +1,0 @@
-wheel
-setuptools
-black
-fastapi
-uvicorn
-psycopg2-binary
-SQLAlchemy
