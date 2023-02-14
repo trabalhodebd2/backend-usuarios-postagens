@@ -1,7 +1,3 @@
-/*
-OBS: Bloquear PUT e DELETE caso o <user_id> seja diferente do ID do usuario logado
-*/
-
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -16,6 +12,7 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(
 	session({
