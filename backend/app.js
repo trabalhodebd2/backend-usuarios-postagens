@@ -6,8 +6,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-const userController = require("./controllers/userController.js");
-const postController = require("./controllers/postController.js");
+const authRoutes = require("./routes/authRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
+const postRoutes = require("./routes/postRoutes.js");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -26,41 +27,9 @@ app.use(
 	})
 );
 
-const isAuthenticated = require("./middlewares/isAuthenticated.js");
-
-// auth routes
-app.post("/login", userController.loginUser);
-app.get("/logout", isAuthenticated, userController.logoutUser);
-app.post("/register", userController.createUser);
-
-// user routes
-app.get("/users/:id", isAuthenticated, userController.getUserById);
-app.put("/users/:id", isAuthenticated, userController.updateUser);
-app.delete("/users/:id", isAuthenticated, userController.deleteUser);
-
-// post routes
-
-app.get("/users/:id/posts", isAuthenticated, postController.getUserPosts);
-
-app.post("/users/:id/posts", isAuthenticated, postController.createUserPost);
-
-app.get(
-	"/users/:userId/posts/:postId",
-	isAuthenticated,
-	postController.getUserPostById
-);
-
-app.put(
-	"/users/:userId/posts/:postId",
-	isAuthenticated,
-	postController.updateUserPost
-);
-
-app.delete(
-	"/users/:userId/posts/:postId",
-	isAuthenticated,
-	postController.deleteUserPost
-);
+app.use(authRoutes);
+app.use(userRoutes);
+app.use(postRoutes);
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
