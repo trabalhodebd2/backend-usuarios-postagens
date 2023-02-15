@@ -20,7 +20,7 @@ import { idEdit, idDelete } from "./services/getIdModals.js"
 
 import {
     signOut
-} from "./services/authenticate/authenticate.js"
+} from "./services/authenticate.js"
 
 const modalEdit = document.querySelector(idEdit)
 modalEdit.addEventListener("submit", event => {

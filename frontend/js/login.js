@@ -1,11 +1,11 @@
-import {
-    signIn
-} from "./services/authenticate/authenticate.js"
-
 import { 
     defaultRoutePages,
     defaultRouteBackEnd
 } from "./config.js"
+
+import { 
+    signIn
+} from "./services/authenticate.js"
 
 export const getValues = (elementForm) => {
     const elements = elementForm.querySelectorAll("input")
@@ -32,13 +32,20 @@ formLogin.addEventListener("submit", async event => {
         body: JSON.stringify({ email, password })
 	};
 
-    try {
-        await fetch(`${defaultRouteBackEnd}login`, config)
+    const route = "login"
+    const urlApi = defaultRouteBackEnd + route
 
-        const page = "index.html"
-        window.location.href = defaultRoutePages + page
-    } catch(e) {
+    try {
+        const response = await fetch(urlApi, config)
+        const content = await response.json()
+        signIn(content.userId)
+
+        if (response.status == 200) {
+            const page = "index.html"
+            window.location.href = defaultRoutePages + page
+        }
+    } catch(err) {
         alert("Ocorreu um error ao fazer login")
-        console.error(e)
+        console.error(err)
     }
 })

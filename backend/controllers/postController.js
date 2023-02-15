@@ -1,7 +1,7 @@
 const { User, Post } = require("../database/models.js");
 
 const getUserPostById = async (req, res) => {
-	//
+	
 	const { postId } = req.params;
 
 	const postFound = await Post.findByPk(postId, {
@@ -16,7 +16,7 @@ const getUserPostById = async (req, res) => {
 };
 
 const getUserPosts = async (req, res) => {
-	//
+	
 	const userFound = await User.findByPk(req.params.id, {
 		include: { all: true, nested: true },
 	});
@@ -31,7 +31,6 @@ const getUserPosts = async (req, res) => {
 };
 
 const createUserPost = async (req, res) => {
-	//
 
 	const { id } = req.params;
 
@@ -49,7 +48,7 @@ const createUserPost = async (req, res) => {
 };
 
 const updateUserPost = async (req, res) => {
-	//
+	
 	const { postId } = req.params;
 
 	const postFound = await Post.findByPk(postId, {

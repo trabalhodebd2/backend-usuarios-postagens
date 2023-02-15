@@ -1,6 +1,6 @@
 import { 
     verifyAutenticate 
-} from "../services/authenticate/authenticate.js"
+} from "../services/authenticate.js"
 
 import { 
     defaultRoutePages

@@ -2,10 +2,17 @@ import {
     defaultRouteBackEnd
 } from "../../config.js"
 
-const grafos = `users/${userId}/posts`
-const urlApi = defaultRouteBackEnd + grafos
+import {
+    getUserId
+} from "./user.js"
+
 
 const getAllNotepads = async () => {
+    const userId = await getUserId()
+    console.log(userId)
+    const grafos = `users/${userId}/posts`
+    const urlApi = defaultRouteBackEnd + grafos
+
     try {
         const response = await fetch(urlApi)
         return await response.json()
@@ -15,6 +22,10 @@ const getAllNotepads = async () => {
 }
 
 const createNotepad = async (title, content) => {
+    const userId = await getUserId()
+    const grafos = `users/${userId}/posts`
+    const urlApi = defaultRouteBackEnd + grafos
+
     const config = {
 		method: "POST",
 		headers: {
@@ -32,6 +43,10 @@ const createNotepad = async (title, content) => {
 }
 
 const updateNotepad = async (id, update) => {
+    const userId = await getUserId()
+    const grafos = `users/${userId}/posts`
+    const urlApi = defaultRouteBackEnd + grafos
+
     const config = {
 		method: "PATCH",
 		headers: {
@@ -49,6 +64,10 @@ const updateNotepad = async (id, update) => {
 }
 
 const deleteNotepad = async (id) => {
+    const userId = await getUserId()
+    const grafos = `users/${userId}/posts`
+    const urlApi = defaultRouteBackEnd + grafos
+
     const config = { method: "DELETE" }
     try {
         const response = await fetch(`${urlApi}/${id}`, config)
@@ -59,6 +78,10 @@ const deleteNotepad = async (id) => {
 }
 
 const searchNotepads = async (query) => {
+    const userId = await getUserId()
+    const grafos = `users/${userId}/posts`
+    const urlApi = defaultRouteBackEnd + grafos
+    
     try {
         const response = await fetch(`${urlApi}?query=${query}`)
         return await response.json()

@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
 	if (user && match) {
 		req.session.userId = user.id;
 		req.session.flash = {};
-		res.json({ message: "User authenticated with success." });
+		res.json({ message: "User authenticated with success.", userId: user.id });
 	} else {
 		req.session.flash = { error: "Email or password not valid." };
 		res.status(400).json({ message: "Email or password not valid." });

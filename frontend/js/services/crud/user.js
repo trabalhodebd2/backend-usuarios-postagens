@@ -22,6 +22,15 @@ const getUser = async (id) => {
     }
 }
 
+const getUserId = async () => {
+    try {
+        const response = await fetch(defaultRouteBackEnd + "me")
+        return await response.json()
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 const createUser = async (username, email, password) => {
     const config = {
 		method: "POST",
@@ -66,4 +75,4 @@ const deleteUser = async (id) => {
     }
 }
 
-export { getUser, createUser, updateUser, deleteUser }
+export { getUser, getUserId, createUser, updateUser, deleteUser }
