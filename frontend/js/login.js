@@ -7,14 +7,33 @@ import {
     defaultRouteBackEnd
 } from "./config.js"
 
+export const getValues = (elementForm) => {
+    const elements = elementForm.querySelectorAll("input")
+    let listValues = []
+    
+    for (const element of elements) {
+        listValues.push(element.value)
+    }
+    
+    return listValues
+}
+
 const formLogin = document.querySelector("#login")
 formLogin.addEventListener("submit", async event => {
     event.preventDefault()
 
+    const [ email, password ] = getValues(formLogin)
+
+    const config = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+        body: JSON.stringify({ email, password })
+	};
+
     try {
-        const response = await fetch(`${defaultRouteBackEnd}/login`)
-        const token = await response.refresh
-        signIn(token)
+        await fetch(`${defaultRouteBackEnd}login`, config)
 
         const page = "index.html"
         window.location.href = defaultRoutePages + page

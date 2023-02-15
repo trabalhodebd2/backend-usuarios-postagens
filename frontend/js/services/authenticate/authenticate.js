@@ -1,4 +1,4 @@
-export const signIn = (token) => localStorage.setItem("token", token)
+export const signIn = (userId) => localStorage.setItem("token", userId)
 
 export const signOut = () => localStorage.removeItem("token")
 

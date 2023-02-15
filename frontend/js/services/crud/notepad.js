@@ -2,7 +2,7 @@ import {
     defaultRouteBackEnd
 } from "../../config.js"
 
-const grafos = "annotations"
+const grafos = `users/${userId}/posts`
 const urlApi = defaultRouteBackEnd + grafos
 
 const getAllNotepads = async () => {

@@ -22,17 +22,17 @@ const getUser = async (id) => {
     }
 }
 
-const createUser = async (name, email, password) => {
+const createUser = async (username, email, password) => {
     const config = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ username, email, password })
 	};
 
     try {
-        const response = await fetch(urlApi, config)
+        const response = await fetch(defaultRouteBackEnd + "register", config)
         return await response.json()
     } catch (err) {
         console.log(err)

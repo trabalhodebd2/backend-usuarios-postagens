@@ -1,7 +1,10 @@
 import { 
     defaultRoutePages,
-    defaultRouteBackEnd
 } from "./config.js"
+
+import {
+    createUser
+} from "./services/crud/user.js"
 
 export const getValues = (elementForm) => {
     const elements = elementForm.querySelectorAll("input")
@@ -15,27 +18,17 @@ export const getValues = (elementForm) => {
 }
 
 const formRegister = document.querySelector("#register")
-formRegister.addEventListener("submit", async event => {
+formRegister.addEventListener("submit", async (event) => {
     event.preventDefault()
 
-    const [ name, email, password ] = getValues(formRegister)
-    const route = "register"
-    const urlApi = defaultRouteBackEnd + route
+    const [ username, email, password ] = getValues(formRegister)
 
-    const options = {
-        method: "POST",
-        body: JSON.stringify({ name, email, password })
-    }
-
-    try {
-        const response = await fetch(urlApi, options)
-        
-        if (response.status === 201) {
-            const page = "login.html"
-            window.location.href = defaultRoutePages + page
-        }
-    } catch(e) {
+    const response = await createUser(username, email, password)
+    
+    if (response?.id) {
+        const page = "login.html"
+        // window.location.href = defaultRoutePages + page
+    } else {
         alert("Ocorreu um error ao registrar usuário")
-        console.error(e)
     }
 })
