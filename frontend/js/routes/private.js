@@ -8,5 +8,5 @@ import {
 
 const page = "login.html"
 
-// if (!verifyAutenticate())
-    // window.location.href = defaultRoutePages + page
+if (!verifyAutenticate())
+    window.location.href = defaultRoutePages + page

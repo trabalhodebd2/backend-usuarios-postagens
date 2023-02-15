@@ -15,16 +15,16 @@ import remapEvents from "./remapEvents.js"
 
 import { idEdit } from "./getIdModals.js"
 
-const controllerEdit = async (title, content) => {
-    lastNotepad.setTitleAndContent(title, content)
-    await updateNotepad(lastNotepad.getId(), {title, content})
+const controllerEdit = async (title, body) => {
+    lastNotepad.setTitleAndContent(title, body)
+    await updateNotepad(lastNotepad.getId(), {title, body})
 }
 
-const controllerCreate = async (title, content) => {
-    const notepad = await createNotepad(title, content)
+const controllerCreate = async (title, body) => {
+    const notepad = await createNotepad(title, body)
 
     const elementContent = createElementNotepad(
-        notepad.id, notepad.title, notepad.content
+        notepad.id, notepad.title, notepad.body
     )
 
     remapEvents()

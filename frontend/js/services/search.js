@@ -13,7 +13,7 @@ const reloadElementsInPage = async (data, erasedCurrent = false) => {
     }
 
     for (const item of data)
-        await createElementNotepad(item.id, item.title, item.content)
+        await createElementNotepad(item.id, item.title, item.body)
 
     remapEvents()
 }
