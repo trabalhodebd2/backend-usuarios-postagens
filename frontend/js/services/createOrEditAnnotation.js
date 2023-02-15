@@ -24,7 +24,7 @@ const controllerCreate = async (title, content) => {
     const notepad = await createNotepad(title, content)
 
     const elementContent = createElementNotepad(
-        notepad._id, notepad.title, notepad.content
+        notepad.id, notepad.title, notepad.content
     )
 
     remapEvents()

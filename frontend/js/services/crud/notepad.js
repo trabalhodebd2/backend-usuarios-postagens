@@ -1,9 +1,9 @@
 import { 
-    defaultRouteNeo4j
+    defaultRouteBackEnd
 } from "../../config.js"
 
 const grafos = "annotations"
-const urlApi = defaultRouteNeo4j + grafos
+const urlApi = defaultRouteBackEnd + grafos
 
 const getAllNotepads = async () => {
     try {

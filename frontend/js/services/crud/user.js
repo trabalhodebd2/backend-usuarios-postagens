@@ -1,9 +1,9 @@
 import { 
-    defaultRoutePostgres
+    defaultRouteBackEnd
 } from "../../config.js"
 
 const table = "user"
-const urlApi = defaultRoutePostgres + table
+const urlApi = defaultRouteBackEnd + table
 
 const getUser = async (id) => {
     const config = {
