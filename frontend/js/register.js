@@ -28,7 +28,7 @@ formRegister.addEventListener("submit", async event => {
     }
 
     try {
-        const response = await fetch(urlApi)
+        const response = await fetch(urlApi, options)
         
         if (response.status === 201) {
             const page = "login.html"
