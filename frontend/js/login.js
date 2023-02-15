@@ -3,15 +3,23 @@ import {
 } from "./services/authenticate/authenticate.js"
 
 import { 
-    defaultRoutePages
+    defaultRoutePages,
+    defaultRouteBackEnd
 } from "./config.js"
 
 const formLogin = document.querySelector("#login")
-formLogin.addEventListener("submit", event => {
+formLogin.addEventListener("submit", async event => {
     event.preventDefault()
 
-    signIn("Oi, eu sou um Token")
+    try {
+        const response = await fetch(`${defaultRouteBackEnd}/login`)
+        const token = await response.refresh
+        signIn(token)
 
-    const page = "login.html"
-    window.location.href = defaultRoutePages + page
+        const page = "index.html"
+        window.location.href = defaultRoutePages + page
+    } catch(e) {
+        alert("Ocorreu um error ao fazer login")
+        console.error(e)
+    }
 })
