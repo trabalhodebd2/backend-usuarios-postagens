@@ -2,23 +2,11 @@ const { User, Post } = require("../database/models.js");
 
 const getUserPostById = async (req, res) => {
 	//
-	const { userId, postId } = req.params;
-
-	const userFound = await User.findByPk(userId, {
-		include: { all: true, nested: true },
-	});
-
-	if (userFound === null) {
-		return res.status(404).json({ message: "No user with the given id" });
-	}
+	const { postId } = req.params;
 
 	const postFound = await Post.findByPk(postId, {
 		include: { all: true, nested: true },
 	});
-
-	if (postFound === null) {
-		return res.status(404).json({ message: "No post with the given id" });
-	}
 
 	return res.json({
 		id: postFound.id,
@@ -29,15 +17,9 @@ const getUserPostById = async (req, res) => {
 
 const getUserPosts = async (req, res) => {
 	//
-	const { id } = req.params;
-
-	const userFound = await User.findByPk(id, {
+	const userFound = await User.findByPk(req.params.id, {
 		include: { all: true, nested: true },
 	});
-
-	if (userFound === null) {
-		return res.status(404).json({ message: "No record with the given id" });
-	}
 
 	const userPosts = [];
 
@@ -52,14 +34,6 @@ const createUserPost = async (req, res) => {
 	//
 
 	const { id } = req.params;
-
-	const userFound = await User.findByPk(id, {
-		include: { all: true, nested: true },
-	});
-
-	if (userFound === null) {
-		return res.status(404).json({ message: "No record with the given id" });
-	}
 
 	const { title, body } = req.body;
 
@@ -76,23 +50,11 @@ const createUserPost = async (req, res) => {
 
 const updateUserPost = async (req, res) => {
 	//
-	const { userId, postId } = req.params;
-
-	const userFound = await User.findByPk(userId, {
-		include: { all: true, nested: true },
-	});
-
-	if (userFound === null) {
-		return res.status(404).json({ message: "No user with the given id" });
-	}
+	const { postId } = req.params;
 
 	const postFound = await Post.findByPk(postId, {
 		include: { all: true, nested: true },
 	});
-
-	if (postFound === null) {
-		return res.status(404).json({ message: "No post with the given id" });
-	}
 
 	const { title, body } = req.body;
 
@@ -111,23 +73,11 @@ const updateUserPost = async (req, res) => {
 };
 
 const deleteUserPost = async (req, res) => {
-	const { userId, postId } = req.params;
-
-	const userFound = await User.findByPk(userId, {
-		include: { all: true, nested: true },
-	});
-
-	if (userFound === null) {
-		return res.status(404).json({ message: "No user with the given id" });
-	}
+	const { postId } = req.params;
 
 	const postFound = await Post.findByPk(postId, {
 		include: { all: true, nested: true },
 	});
-
-	if (postFound === null) {
-		return res.status(404).json({ message: "No post with the given id" });
-	}
 
 	await postFound.destroy();
 
