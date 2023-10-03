@@ -26,7 +26,7 @@ formRegister.addEventListener("submit", async (event) => {
     const response = await createUser(username, email, password)
     
     if (response?.id) {
-        const page = "login.html"
+        const page = "login"
         window.location.href = defaultRoutePages + page
     } else {
         alert("Ocorreu um error ao registrar usuário")
