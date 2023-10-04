@@ -11,29 +11,19 @@
     </head>
     <body>
         <form
-            id="register"
+            id="login"
             class="h-screen flex justify-center items-center opacity-100 transition-opacity"
         >
             <div
                 class="shadow-common w-[40rem] bg-white py-10 px-10 space-y-9 rounded-lg"
             >
-                <h1 class="flex justify-center text-5xl font-bold">Cadastro</h1>
-                <div class="space-y-4">
-                    <h1 class="text-xl">Nome</h1>
-                    <input
-                        type="text"
-                        id="name"
-                        max="125"
-                        required
-                        class="h-[3.125rem] w-full bg-primary px-4 rounded-lg"
-                    />
-                </div>
+                <h1 class="flex justify-center text-5xl font-bold">Login</h1>
                 <div class="space-y-4">
                     <h1 class="text-xl">E-mail</h1>
                     <input
                         type="email"
                         id="email"
-                        max="525"
+                        max="125"
                         required
                         class="h-[3.125rem] w-full bg-primary px-4 rounded-lg"
                     />
@@ -51,20 +41,20 @@
 
                 <div class="flex gap-4">
                     <a
-                        href="login.html"
-                        class="h-14 w-1/2 rounded-lg font-bold border-[2px] border-gray flex justify-center items-center text-gray cursor-pointer cancel hover:border-none hover:text-primary hover:bg-gray transition-all"
-                        >Cancelar</a
+                        href="cadastro"
+                        class="h-14 w-1/2 rounded-lg font-bold border-[2px] border-gray flex justify-center items-center text-gray cursor-pointer hover:border-none hover:text-primary hover:bg-gray transition-all"
+                        >Cadastrar</a
                     >
                     <button
                         id="button-update"
                         class="h-14 w-1/2 rounded-lg font-bold bg-tertiary text-primary hover:bg-tertiary_hover transition-all"
                     >
-                        Enviar
+                        Entrar
                     </button>
                 </div>
             </div>
         </form>
 
-        <script type="module" src="js/register.js"></script>
+        <script type="module" src="js/login.js"></script>
     </body>
 </html>

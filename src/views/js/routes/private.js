@@ -6,7 +6,7 @@ import {
     defaultRoutePages
 } from "../config.js"
 
-const page = "login"
+const page = "login.html"
 
 if (!verifyAutenticate())
     window.location.href = defaultRoutePages + page

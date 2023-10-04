@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const isAuthenticated = require("../../middlewares/isAuthenticated.js");
+const isAuthenticated = require("../middlewares/isAuthenticated.js");
 
 const {
     userObjectExists,
     isSameUserPermission,
-} = require("../../middlewares/userPermission.js");
+} = require("../middlewares/userPermission.js");
 
-const postObjectExists = require("../../middlewares/postPermission.js");
+const postObjectExists = require("../middlewares/postPermission.js");
 
-const postController = require("../../controllers/postController.js");
+const postController = require("../controllers/postController.js");
 
 router
     .route("/users/:id/posts")

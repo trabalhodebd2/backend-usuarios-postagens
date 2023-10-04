@@ -11,13 +11,19 @@ const viewRoutes = require("./src/routes/viewRoutes.js");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const nunjucks = require('nunjucks');
 const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(express.static("public"));
+app.set('view engine', 'njk');
+nunjucks.configure('src/views', {
+  express: app,
+  autoescape: true,
+  noCache: true,
+});
 
 app.use(
     session({
